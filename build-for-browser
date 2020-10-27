@@ -1,0 +1,12 @@
+#! /usr/bin/bash
+
+#BABEL_ENV=browser
+BABEL_ENV=latest-browser
+export BABEL_ENV
+
+# see --help
+# npx webpack --watch --debug
+# npx webpack-dashboard -- webpack --watch
+npx webpack-dashboard -- webpack-dev-server --content-base dist/
+
+# Open http://localhost:8080/
