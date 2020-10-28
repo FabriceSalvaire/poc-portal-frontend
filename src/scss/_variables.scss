@@ -1,0 +1,84 @@
+/***************************************************************************************************
+ *
+ * Portal — 
+ * Copyright (C) 2020 Fabrice Salvaire
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ **************************************************************************************************/
+
+/***************************************************************************************************
+ *
+ * Fontawesome Woff
+ *
+ */
+
+$fa-var-caret-down: '\f0d7';
+$fa-var-caret-up: '\f0d8';
+
+/***************************************************************************************************
+ *
+ * Z Indexs
+ *
+ */
+
+$open-left-sidebar: $zindex-fixed;
+
+/**************************************************************************************************/
+
+$top-navbar-height: ($navbar-padding-y)*2 + $nav-link-height;
+
+/***************************************************************************************************
+ *
+ * Sidebar
+ *
+ */
+
+$left-sidebar-width: 280px;
+
+$sidebar-color-interval: $theme-color-interval / 2; // 8% -> 4%
+$sidebar-bg: darken($body-bg, $sidebar-color-interval);
+$sidebar-color: $body-color;
+$sidebar-border: 1px solid darken($sidebar-bg, $sidebar-color-interval*2);
+
+$sidebar-divider-color: lighten($sidebar-color, $sidebar-color-interval);
+
+$sidebar-menu-hovered: darken($sidebar-bg, $sidebar-color-interval);
+$sidebar-menu-color: $sidebar-color;
+
+$sidebar-submenu-bg: darken($sidebar-bg, $sidebar-color-interval);
+$sidebar-submenu-hovered: lighten($sidebar-submenu-bg, $sidebar-color-interval);
+$sidebar-submenu-color: $sidebar-color;
+
+$sidebar-open-padding-t: 5px;
+$sidebar-open-padding-b: $sidebar-open-padding-t*2;
+$sidebar-open-button-size: 32px;
+$sidebar-open-size: $sidebar-open-button-size + $sidebar-open-padding-t + $sidebar-open-padding-b + 5px;
+$sidebar-open-wrapper-size: $sidebar-open-size + $sidebar-open-padding-t*3;
+$sidebar-close-bg: darken($sidebar-bg, $sidebar-color-interval*3);
+
+$sidebar-padding-x: 1rem;
+$sidebar-padding-y: .75rem;
+$sidebar-submenu-padding-y: .5rem;
+
+$sidebar-menu-line-height: 2rem;
+$sidebar-submenu-line-height: 1.5rem;
+
+$sidebar-level-padding-step: 1rem;
+$sidebar-level-padding-1: 2rem;
+
+$sidebar-level-padding: ($sidebar-level-padding-1);
+@for $i from 1 through 4 {
+  $sidebar-level-padding: append($sidebar-level-padding, nth($sidebar-level-padding, $i) + $sidebar-level-padding-step);
+}
