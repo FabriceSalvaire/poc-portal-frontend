@@ -7,6 +7,10 @@ export BABEL_ENV
 # see --help
 # npx webpack --watch --debug
 # npx webpack-dashboard -- webpack --watch
-npx webpack-dashboard -- webpack-dev-server --content-base dist/
+
+# https://github.com/webpack/webpack-dev-server/issues/2029
+### npx webpack-dashboard -- webpack-dev-server --content-base dist/
+# npx webpack serve
+# npx webpack-dashboard -- webpack serve --content-base dist/
 
 # Open http://localhost:8080/
