@@ -27,7 +27,7 @@
 /**************************************************************************************************/
 
 export default
-class WishlistModel {
+class FooModel {
     constructor(endpoint) {
 	this._endpoint = endpoint;
 
