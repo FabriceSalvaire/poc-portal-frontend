@@ -20,31 +20,25 @@
 
 /**************************************************************************************************/
 
-import HomePage from './views/HomePage.jsx';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// require('../scss/app.js');
+// require('./fontawesome.js');
+
+import store from './bootstrap.js';
+import Root from './Root.jsx';
+
+// require('./graphql.js');
 
 /**************************************************************************************************/
 
-export
-const PAGES = {
-    home: {
-        path: '/',
-        exact: true,
-        page: HomePage,
-    },
-    // about: {
-    //     path: '/about',
-    //     page: About,
-    // },
-    graphiql: {
-        path: '/graphiql',
-        page: GraphiQLPage,
-        title: 'GraphiQL',
-    },
-};
+console.log('Start Web Application');
 
-/**************************************************************************************************/
-
-export
-const PAGES_ON_NAVBAR = [
-    'graphiql',
-].map(name => PAGES[name]);
+// Application is wrapped in <div id='app'></div>
+// Fixme: id='root' ???
+const wrapper = document.getElementById('app');
+if (wrapper)
+    ReactDOM.render(<Root store={store} />, wrapper);
+else
+    console.log('Element id=app not found in the dom');

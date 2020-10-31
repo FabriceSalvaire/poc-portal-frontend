@@ -182,6 +182,33 @@ const css_loaders = [
     },
 ];
 
+
+const html_webpack_plugin_config = {
+    // https://github.com/jantimon/html-webpack-plugin
+    // https://ejs.co — Embedded JavaScript templating
+    template: './src/index.ejs',
+    // filename: 'index.html',
+    title: 'Portal',
+    // https://github.com/jantimon/html-webpack-plugin/blob/master/examples/template-parameters/webpack.config.js
+    templateParameters: (compilation, assets, assetTags, options) => {
+        // console.log(compilation);
+        // console.log(compilation.options);
+        // console.log(assets);
+        // console.log(assetTags);
+        // console.log(options);
+        return {
+            htmlWebpackPlugin: {
+                options,   // HtmlWebpackplugin options
+                tags: assetTags,
+                files: assets,
+            },
+            webpack_config: compilation.options,
+        };
+    },
+    // minify: true,
+    minify: false,
+};
+
 /**************************************************************************************************/
 
 let config = {
@@ -192,6 +219,7 @@ let config = {
     },
 
     output: {
+        // publicPath: ,
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js'
     },
@@ -243,10 +271,7 @@ let config = {
         //     jQuery: 'jquery',
         //     'window.jQuery': 'jquery'
         // }),
-        new HtmlWebPackPlugin({
-            template: './src/index.html',
-            filename: './index.html'
-        }),
+        new HtmlWebPackPlugin(html_webpack_plugin_config),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
             chunkFilename: 'css/[id].css',

@@ -18,64 +18,33 @@
  *
  **************************************************************************************************/
 
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+/**************************************************************************************************/
 
-import { PAGES } from './pages.js';
-
-import LeftSideBar from './containers/LeftSideBar.js';
-import { Skippy, TopNavBar} from './components/TopNavBar.jsx';
+// import HomePage from './views/HomePage.jsx';
 
 /**************************************************************************************************/
 
-/*
-const ThemeContext = React.createContext('...');
-<ThemeContext.Provider value={theme}>
-</ThemeContext.Provider>
-*/
-
-/*
-const About = () => (
-    <div className='container'>
-        <h2>About</h2>
-    </div>
-);
-*/
-
-/**************************************************************************************************/
-
-const PageStack = () => (
-    <Switch>
-        {Object.values(PAGES).map((route, index) => (
-            <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.page}
-            />
-        ))}
-    </Switch>
-);
+export
+const PAGES = {
+    // home: {
+    //     path: '/',
+    //     exact: true,
+    //     page: HomePage,
+    // },
+    // about: {
+    //     path: '/about',
+    //     page: About,
+    // },
+    // graphiql: {
+    //     path: '/graphiql',
+    //     page: GraphiQLPage,
+    //     title: 'GraphiQL',
+    // },
+};
 
 /**************************************************************************************************/
 
-const Application = props => (
-    <div>
-        <Skippy />
-        <TopNavBar />
-
-        <div id='body-content'>
-            <div className='container-fluid'>
-                <div className='row flex-xl-nowrap'>
-                    <main className='col-12 py-md-3' role='main'>
-                        <PageStack />
-                    </main>
-                </div>
-            </div>
-        </div>
-
-        <LeftSideBar location={props.location} />
-    </div>
-);
-
-export default Application;
+export
+const PAGES_ON_NAVBAR = [
+    // 'graphiql',
+].map(name => PAGES[name]);

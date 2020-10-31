@@ -20,24 +20,40 @@
 
 /**************************************************************************************************/
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { createLogger } from 'redux-logger'
+import thunkMiddleware from 'redux-thunk'
 
-require('../scss/app.js');
-require('./fontawesome.js');
-
-import store from './bootstrap.js';
-import Root from './Root.jsx';
-
-// require('./graphql.js');
+// import XXX from './modules/XXX/reducer';
+import sidebar from './modules/sidebar/reducer';
 
 /**************************************************************************************************/
 
-console.log('Start Web Application');
+const initial_state = {
+    // left_sidebar
+    sidebar: {
+        is_active: true,
+    },
+};
 
-// Application is wrapped in <div id='app'></div>
-const wrapper = document.getElementById('app');
-if (wrapper)
-    ReactDOM.render(<Root store={store} />, wrapper);
-else
-    console.log('Element id=app not found in the dom');
+const reducers = combineReducers({
+    sidebar,
+});
+
+const logger_middleware = createLogger();
+
+const middleware = [
+    thunkMiddleware,
+    logger_middleware,
+];
+
+// https://github.com/zalmoxisus/redux-devtools-extension#usage
+const compose_enhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+    reducers,
+    initial_state,
+    compose_enhancers(applyMiddleware(...middleware)),
+);
+
+export default store;
