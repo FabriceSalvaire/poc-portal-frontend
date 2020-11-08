@@ -33,7 +33,7 @@ import Root from './Root.jsx';
 
 /**************************************************************************************************/
 
-console.log('Start Web Application');
+console.log('Start React Application');
 
 // Application is wrapped in <div id='app'></div>
 // Fixme: id='root' ???
