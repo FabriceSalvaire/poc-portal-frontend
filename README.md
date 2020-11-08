@@ -1,5 +1,16 @@
 # Portal Frontend
 
+## Stack
+
+* [React](https://reactjs.org)
+* [Create React App](https://create-react-app.dev) (using Webpack)
+* Sass stylesheet
+* Nginx HTTP proxy or as a Wordpress Plugin
+
+# Urls
+
+* Frontend: http://localhost:3000
+
 ## How to Build
 
 **Note: node_module cannot be a symlink !**
